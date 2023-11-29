@@ -1,25 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilos/styles.css">
-    <title>Setap - Amapá</title>
+    <title>SETAP</title>
 </head>
-<body>
-
-   <img src="Imagens/setap.png" width="300px">
-
-    <div class="container">
-        <form id="login-form" action="setap.html" method="POST">
-            <h2>Tela de Login</h2>
-            <label for="username">Nome de Usuário:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Entrar</button>
-        </form>
+<body>  
+    <div id="header">
+        <img id="logo" src="Imagens/setap.png" alt="Logo do Site" width="300">
+        <div id="date-time"></div> <!-- Novo elemento para a data e hora -->
     </div>
+    <div id="container">
+        <div id="menu">
+            <h2>Tarifas de Ônibus</h2>
+            <ul>
+                <li>Macapá: R$ 3,75</li>
+                <li>Macapá- Santana: R$ 4,00</li>
+            </ul>
+        </div>
+        <div id="content">
+            <img id="image" src="Imagens/setembro.png" alt="Minha Imagem" width="600">
 
+            <div id="button-container">
+                <a href="login.html"><button class="option-button">Login</button></a>
+                
+            </div>
+        </div>
+        <div id="dates">
+            <h2>Cadastro e recadastro da meia passagem:</h2>
+            <ul>
+                <li>De 01 de agosto a 01 de setembro.</li>
+                <li><h2><b>Cadastro:</b><br><h2></h2>
+
+                <h5>Declação escolar do ano de 2023;<br>
+                    Comprovante de residência;<br>
+                    RG ou certidão de nascimento; <br></h5>
+
+                   <h2> <b> Recadastro:</b><br></h2>
+                    
+                <h5><Declaração escolar do ano e 2023; <br>
+                    Cópia/imagem da carteirinha de meia-passagem;<br>
+                    São esperados mais de 20 mil estudantes para o segundo semestre de 2023.</h5> </li>
+            
+            </ul>
+        </div>
+    </div>
+    <script>
+        // Função para obter a data e hora atual e atualizar o elemento #date-time
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('date-time');
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            const formattedDateTime = now.toLocaleDateString('pt-BR', options);
+            dateTimeElement.textContent = formattedDateTime;
+        }
+    
+        // Chame a função inicialmente para exibir a data e a hora atual
+        updateDateTime();
+    
+        // Atualize a data e a hora a cada segundo
+        setInterval(updateDateTime, 1000);
+    </script>
+    
 </body>
 </html>

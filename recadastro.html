@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rematrícula de Cartão de Transporte</title>
+  <style>
+    body {
+        font-family:  Georgia, 'Times New Roman', Times, serif;y: Arial, sans-serif;
+      background-color: #00ffc8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #eeff00;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    .file-input-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .file-input-wrapper input[type=file] {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+
+    .file-input-wrapper .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .file-input-wrapper .file-name {
+      margin-left: 10px;
+    }
+
+    .submit-btn {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Rematrícula de Cartão de Transporte <br>
+        <h4>OBSERVAÇÃO: ANEXAR COMPROVANTE DE PAGAMENTO NO PDF</h4>
+        <h5>CHAVE PIX SETAP: 000.000.000-00</h5></h1>
+
+    <form action="concluido.html" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <div class="file-input-wrapper">
+        <label for="documento" class="btn">Anexar Documento PDF</label>
+        <input type="file" id="documento" name="documento" accept=".pdf">
+        <span class="file-name">Nenhum arquivo selecionado</span>
+      </div>
+
+      <button type="submit" class="submit-btn">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('documento').addEventListener('change', function () {
+      var fileName = this.files[0].name;
+      document.querySelector('.file-name').textContent = fileName;
+    });
+  </script>
+
+</body>
+</html>
